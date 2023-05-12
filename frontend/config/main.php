@@ -8,6 +8,7 @@ $params = array_merge(
 
 return [
     'id' => 'app-frontend',
+    'language' => isset($params['language'])?$params['language']:'en-US',
     'basePath' => dirname(__DIR__),
     'bootstrap' => ['log'],
     'controllerNamespace' => 'frontend\controllers',
@@ -37,10 +38,15 @@ return [
             'errorAction' => 'site/error',
         ],
         
+        'assetManager' => [
+            'appendTimestamp' => true,
+        ],
+        
         'urlManager' => [
             'enablePrettyUrl' => true,
             'showScriptName' => false,
             'rules' => [
+                ''=>'/site/index'
             ],
         ],
         
