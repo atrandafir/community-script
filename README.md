@@ -1,3 +1,61 @@
+INTRODUCTION
+-------------------
+
+[Community Script](https://communityscript.org/) is the platform that powers 
+[CrazyPoems](https://crazypoems.org/) romanian community for poems enthusiasts and 
+many other [communities](https://communityscript.org/network).
+
+This is an Open Source software built with PHP and Yii 2 framework, among other tools.
+
+The goal is to provide a platform with a feature set that will allow anyone to 
+easily build an online community around content creation, such as: articles, 
+poems, drawings, art, and any kind of content you can think of.
+
+Features set:  
+
+- Users & Profiles
+- Posts
+- Categories
+- Comments & interactions
+- Themeable & translatable
+- Action-triggered web/mail notifications
+- Mailing & newsletter
+- Simple CMS
+- Custom URL routing, friendly SEO URLs & sitemap generator
+- Social network integration and broadcasting
+- Contest system & other user engagement mechanisms
+- Premium membership model & subscriptions
+- Ads management
+- Backoffice for configuring & moderating the platform
+
+Example sites that can be built with it:  
+
+- Wattpad like for writing stories
+- Deviantart like for posting illustrations and art
+- Instagram like for posting any content like a social media platform
+- And with some extra customization, any other type of community, such as Soundcloud, Fans sites, etc
+
+The platform can be used either for free configuring it yourself, or you can choose 
+to subscribe and create a hosted instance that will run on our servers. (soon)
+
+SITES POWERED BY CS
+-------------------
+
+https://crazypoems.org/
+
+SETUP
+-------------------
+
+In order to set it up, please follow the [install](docs/guide/INSTALL.md) instructions 
+or [sign up for a hosted](https://communityscript.org/hosted) version.
+
+CREDITS & THANKS
+-------------------
+
+The development has been inspired by other Open Source tools such as 
+https://presentator.io/ and https://www.humhub.com/en that have different purpose 
+but are similar in terms of open source model.
+
 <p align="center">
     <a href="https://github.com/yiisoft" target="_blank">
         <img src="https://avatars0.githubusercontent.com/u/993323" height="100px">
