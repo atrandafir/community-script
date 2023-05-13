@@ -24,7 +24,8 @@ return [
             'class'=>I18N::class,
             'translations' => [
                 '*' => [
-                    'class' => 'yii\i18n\DbMessageSource'
+                    'class' => 'yii\i18n\PhpMessageSource',
+                    'basePath' => '@common/messages',
                 ],
             ],
         ],

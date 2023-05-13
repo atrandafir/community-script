@@ -39,7 +39,6 @@ AppAsset::register($this);
     $menuItems = [
         ['label' => Yii::t('back.menu', 'Home'), 'url' => ['/site/index']],
         ['label' => Yii::t('back.menu', 'Users'), 'url' => ['/user/index']],
-        ['label' => Yii::t('back.menu', 'Translations'), 'url' => ['/translation/languages']],
     ];
     
     $menuItems[] = ['label' => 'Language', 'items' => LanguageHelper::languageLinksForNav()];

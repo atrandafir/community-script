@@ -58,14 +58,14 @@ return [
         '/vendor',
     ],
 
-    /*
+    
     // 'php' output format is for saving messages to php files.
     'format' => 'php',
     // Root directory containing message translations.
-    'messagePath' => __DIR__,
+    'messagePath' => __DIR__ . DIRECTORY_SEPARATOR . '..' . DIRECTORY_SEPARATOR . 'messages',
     // boolean, whether the message file should be overwritten with the merged messages
     'overwrite' => true,
-    */
+    
     
     /*
     // Message categories to ignore
@@ -74,7 +74,7 @@ return [
     ],
      */
 
-    
+    /*
     // 'db' output format is for saving messages to database.
     'format' => 'db',
     // Connection component to use. Optional.
@@ -83,7 +83,7 @@ return [
     // 'sourceMessageTable' => '{{%source_message}}',
     // Custom name for translation message table. Optional.
     // 'messageTable' => '{{%message}}',
-    
+    */
 
     /*
     // 'po' output format is for saving messages to gettext po files.
