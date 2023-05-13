@@ -1,4 +1,7 @@
 <?php
+
+use common\components\MultiLingualUrlManager;
+
 $params = array_merge(
     require __DIR__ . '/../../common/config/params.php',
     require __DIR__ . '/../../common/config/params-local.php',
@@ -43,6 +46,7 @@ return [
         ],
         
         'urlManager' => [
+            'class'=>MultiLingualUrlManager::class,
             'enablePrettyUrl' => true,
             'showScriptName' => false,
             'rules' => [

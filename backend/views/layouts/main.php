@@ -10,6 +10,8 @@ use yii\bootstrap5\Html;
 use yii\bootstrap5\Nav;
 use yii\bootstrap5\NavBar;
 
+use common\helpers\LanguageHelper;
+
 AppAsset::register($this);
 ?>
 <?php $this->beginPage() ?>
@@ -29,17 +31,19 @@ AppAsset::register($this);
     <?php
     NavBar::begin([
         'brandLabel' => Yii::$app->name,
-        'brandUrl' => Yii::$app->homeUrl,
+        'brandUrl' => ['/site/index'],
         'options' => [
             'class' => 'navbar navbar-expand-md navbar-dark bg-dark fixed-top',
         ],
     ]);
     $menuItems = [
-        ['label' => 'Home', 'url' => ['/site/index']],
+        ['label' => Yii::t('back.menu', 'Home'), 'url' => ['/site/index']],
+        ['label' => Yii::t('back.menu', 'Users'), 'url' => ['/user/index']],
+        ['label' => Yii::t('back.menu', 'Translations'), 'url' => ['/translation/languages']],
     ];
-    if (Yii::$app->user->isGuest) {
-        $menuItems[] = ['label' => 'Login', 'url' => ['/site/login']];
-    }     
+    
+    $menuItems[] = ['label' => 'Language', 'items' => LanguageHelper::languageLinksForNav()];
+    
     echo Nav::widget([
         'options' => ['class' => 'navbar-nav me-auto mb-2 mb-md-0'],
         'items' => $menuItems,
@@ -49,7 +53,7 @@ AppAsset::register($this);
     } else {
         echo Html::beginForm(['/site/logout'], 'post', ['class' => 'd-flex'])
             . Html::submitButton(
-                'Logout (' . Yii::$app->user->identity->username . ')',
+                Yii::t('back.menu', 'Logout').' (' . Yii::$app->user->identity->username . ')',
                 ['class' => 'btn btn-link logout text-decoration-none']
             )
             . Html::endForm();

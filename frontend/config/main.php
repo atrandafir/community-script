@@ -1,4 +1,7 @@
 <?php
+
+use common\components\MultiLingualUrlManager;
+
 $params = array_merge(
     require __DIR__ . '/../../common/config/params.php',
     require __DIR__ . '/../../common/config/params-local.php',
@@ -8,7 +11,6 @@ $params = array_merge(
 
 return [
     'id' => 'app-frontend',
-    'language' => isset($params['language'])?$params['language']:'en-US',
     'basePath' => dirname(__DIR__),
     'bootstrap' => ['log'],
     'controllerNamespace' => 'frontend\controllers',
@@ -43,6 +45,7 @@ return [
         ],
         
         'urlManager' => [
+            'class'=>MultiLingualUrlManager::class,
             'enablePrettyUrl' => true,
             'showScriptName' => false,
             'rules' => [
