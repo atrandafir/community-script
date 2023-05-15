@@ -20,7 +20,7 @@ return [
     'About' => '',
     'Contact' => '',
     'Home' => '',
-    'Login' => '',
+    'Log in' => '',
     'Logout' => '',
-    'Signup' => '',
+    'Sign up' => '',
 ];

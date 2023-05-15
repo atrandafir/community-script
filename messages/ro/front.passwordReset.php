@@ -17,6 +17,18 @@
  * NOTE: this file must be saved in UTF-8 encoding.
  */
 return [
-    'Check your email for further instructions.' => '',
-    'New password saved.' => '',
+    'Check your email for further instructions.' => 'Verifică-ți e-mailul pentru instrucțiuni suplimentare.',
+    'Email' => 'Email',
+    'Follow the link below to reset your password:' => 'Urmează linkul de mai jos pentru a-ți reseta parola:',
+    'Hello {username}' => 'Salut {username}',
+    'New password saved.' => 'Noua parola a fost salvata.',
+    'Password reset for {site_name}' => 'Resetare parola pentru {site_name}',
+    'Please choose your new password:' => 'Te rog alege o parolă nouă:',
+    'Request password reset' => 'Soliciteaza resetarea parolei',
+    'Reset password' => 'Resetare parolă',
+    'Save' => 'Salvează',
+    'Send' => 'Trimite',
+    'Sorry, we are unable to reset password for the provided email address.' => 'Ne pare rău, nu putem reseta parola pentru adresa de e-mail furnizată.',
+    'There is no user with this email address.' => 'Nu există niciun utilizator cu această adresă de e-mail.',
+    'Password' => 'Parolă',
 ];

@@ -74,7 +74,9 @@ AppAsset::register($this);
 <footer class="footer mt-auto py-3 text-muted">
     <div class="container">
         <p class="float-start">&copy; <?= Html::encode(Yii::$app->name) ?> <?= date('Y') ?></p>
-        <p class="float-end"><?= Yii::powered() ?></p>
+        <p class="float-end"><?= \Yii::t('yii', 'Powered by {link}', [
+            'link' => '<a href="https://github.com/atrandafir/community-script" rel="external" target="_blank">Community Script</a>',
+        ]); ?></p>
     </div>
 </footer>
 

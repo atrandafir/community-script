@@ -17,6 +17,12 @@
  * NOTE: this file must be saved in UTF-8 encoding.
  */
 return [
-    'Your email has been confirmed!' => 'E-mailul tau a fost confirmat!',
-    'Sorry, we are unable to verify your account with provided token.' => 'Ne pare rău, nu s-a putut verifica contul cu token-ul furnizat.',
+    'Don\'t have an user account yet? {linkStart}Sign up here{linkEnd}' => '',
+    'If you forgot your password you can {linkStart}reset it{linkEnd}' => '',
+    'Incorrect username or password.' => '',
+    'Log in' => '',
+    'Need new verification email? {linkStart}Resend{linkEnd}' => '',
+    'Password' => '',
+    'Remember me' => '',
+    'Username or email' => '',
 ];

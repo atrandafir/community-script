@@ -26,6 +26,7 @@ class SignupForm extends Model
             ['username', 'required'],
             ['username', 'unique', 'targetClass' => '\common\models\User', 'message' => Yii::t('front.signup', 'This username has already been taken.')],
             ['username', 'string', 'min' => 2, 'max' => 255],
+            ['username', 'match', 'pattern' => "/^([a-zA-Z0-9_])+$/", 'message' => Yii::t('front.signup', "The username can only contain letters from A to Z, numbers from 0 to 9 and the underscore '_'.")],
 
             ['email', 'trim'],
             ['email', 'required'],
@@ -81,11 +82,13 @@ class SignupForm extends Model
         return Yii::$app
             ->mailer
             ->compose(
-                ['html' => 'emailVerify-html', 'text' => 'emailVerify-text'],
+                ['html' => 'emailVerify-html'],
                 ['user' => $user]
             )
             ->setTo($this->email)
-            ->setSubject('Account registration at ' . Yii::$app->name)
+            ->setSubject(Yii::t('front.signup.email', 'Account registration at {site_name}', [
+                'site_name'=>Yii::$app->name,
+            ]))
             ->send();
     }
 }

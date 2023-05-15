@@ -170,7 +170,7 @@ class SiteController extends Controller {
         return $this->goHome();
       }
 
-      Yii::$app->session->setFlash('error', 'Sorry, we are unable to reset password for the provided email address.');
+      Yii::$app->session->setFlash('error', Yii::t('front.passwordReset', 'Sorry, we are unable to reset password for the provided email address.'));
     }
 
     return $this->render('requestPasswordResetToken', [
@@ -221,7 +221,7 @@ class SiteController extends Controller {
       return $this->goHome();
     }
 
-    Yii::$app->session->setFlash('error', 'Sorry, we are unable to verify your account with provided token.');
+    Yii::$app->session->setFlash('error', Yii::t('front.verifyEmail', 'Sorry, we are unable to verify your account with provided token.'));
     return $this->goHome();
   }
 
@@ -237,7 +237,7 @@ class SiteController extends Controller {
         Yii::$app->session->setFlash('success', Yii::t('front.resendVerificationEmail', 'Check your email for further instructions.'));
         return $this->goHome();
       }
-      Yii::$app->session->setFlash('error', 'Sorry, we are unable to resend verification email for the provided email address.');
+      Yii::$app->session->setFlash('error', Yii::t('front.resendVerificationEmail', 'Sorry, we are unable to resend verification email for the provided email address.'));
     }
 
     return $this->render('resendVerificationEmail', [

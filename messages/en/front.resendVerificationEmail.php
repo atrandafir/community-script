@@ -18,4 +18,9 @@
  */
 return [
     'Check your email for further instructions.' => '',
+    'Email' => '',
+    'Resend verification email' => '',
+    'Send' => '',
+    'Sorry, we are unable to resend verification email for the provided email address.' => '',
+    'There is no user with this email address.' => '',
 ];

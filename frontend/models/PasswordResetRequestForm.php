@@ -26,8 +26,18 @@ class PasswordResetRequestForm extends Model
             ['email', 'exist',
                 'targetClass' => '\common\models\User',
                 'filter' => ['status' => User::STATUS_ACTIVE],
-                'message' => 'There is no user with this email address.'
+                'message' => Yii::t('front.passwordReset', 'There is no user with this email address.')
             ],
+        ];
+    }
+    
+    /**
+     * {@inheritdoc}
+     */
+    public function attributeLabels()
+    {
+        return [
+            'email' => Yii::t('front.passwordReset', 'Email'),
         ];
     }
 
@@ -58,11 +68,13 @@ class PasswordResetRequestForm extends Model
         return Yii::$app
             ->mailer
             ->compose(
-                ['html' => 'passwordResetToken-html', 'text' => 'passwordResetToken-text'],
+                ['html' => 'passwordResetToken-html'],
                 ['user' => $user]
             )
             ->setTo($this->email)
-            ->setSubject('Password reset for ' . Yii::$app->name)
+            ->setSubject(Yii::t('front.passwordReset', 'Password reset for {site_name}', [
+                'site_name'=>Yii::$app->name,
+            ]))
             ->send();
     }
 }

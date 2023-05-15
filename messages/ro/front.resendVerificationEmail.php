@@ -17,5 +17,10 @@
  * NOTE: this file must be saved in UTF-8 encoding.
  */
 return [
-    'Check your email for further instructions.' => '',
+    'Check your email for further instructions.' => 'Verifică-ți e-mailul pentru instrucțiuni suplimentare.',
+    'Email' => 'Email',
+    'Resend verification email' => 'Retrimite email-ul de verificare',
+    'Send' => 'Trimite',
+    'Sorry, we are unable to resend verification email for the provided email address.' => 'Ne pare rău, nu putem retrimite e-mailul de verificare pentru adresa de e-mail furnizată.',
+    'There is no user with this email address.' => 'Nu există niciun utilizator cu această adresă de e-mail.',
 ];

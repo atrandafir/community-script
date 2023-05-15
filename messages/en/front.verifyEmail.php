@@ -17,5 +17,6 @@
  * NOTE: this file must be saved in UTF-8 encoding.
  */
 return [
+    'Sorry, we are unable to verify your account with provided token.' => '',
     'Your email has been confirmed!' => '',
 ];

@@ -26,9 +26,15 @@ class ResendVerificationEmailForm extends Model
             ['email', 'exist',
                 'targetClass' => '\common\models\User',
                 'filter' => ['status' => User::STATUS_INACTIVE],
-                'message' => 'There is no user with this email address.'
+                'message' => Yii::t('front.resendVerificationEmail', 'There is no user with this email address.')
             ],
         ];
+    }
+    
+    public function attributeLabels(): array {
+      return [
+          'email'=>Yii::t('front.resendVerificationEmail', 'Email'),
+      ];
     }
 
     /**
@@ -50,11 +56,13 @@ class ResendVerificationEmailForm extends Model
         return Yii::$app
             ->mailer
             ->compose(
-                ['html' => 'emailVerify-html', 'text' => 'emailVerify-text'],
+                ['html' => 'emailVerify-html'],
                 ['user' => $user]
             )
             ->setTo($this->email)
-            ->setSubject('Account registration at ' . Yii::$app->name)
+            ->setSubject(Yii::t('front.signup.email', 'Account registration at {site_name}', [
+                'site_name'=>Yii::$app->name,
+            ]))
             ->send();
     }
 }

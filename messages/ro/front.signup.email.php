@@ -17,6 +17,7 @@
  * NOTE: this file must be saved in UTF-8 encoding.
  */
 return [
-    'Your email has been confirmed!' => 'E-mailul tau a fost confirmat!',
-    'Sorry, we are unable to verify your account with provided token.' => 'Ne pare rău, nu s-a putut verifica contul cu token-ul furnizat.',
+    'Follow the link below to verify your email:' => 'Urmează linkul de mai jos pentru a-ți verifica adresa de e-mail:',
+    'Hello {username}' => 'Salut {username}',
+    'Account registration at {site_name}' => 'Înregistrare cont pentru {site_name}',
 ];

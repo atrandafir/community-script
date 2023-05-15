@@ -18,5 +18,17 @@
  */
 return [
     'Check your email for further instructions.' => '',
+    'Email' => '',
+    'Follow the link below to reset your password:' => '',
+    'Hello {username}' => '',
     'New password saved.' => '',
+    'Password' => '',
+    'Password reset for {site_name}' => '',
+    'Please choose your new password:' => '',
+    'Request password reset' => '',
+    'Reset password' => '',
+    'Save' => '',
+    'Send' => '',
+    'Sorry, we are unable to reset password for the provided email address.' => '',
+    'There is no user with this email address.' => '',
 ];

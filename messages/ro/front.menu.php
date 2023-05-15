@@ -17,10 +17,10 @@
  * NOTE: this file must be saved in UTF-8 encoding.
  */
 return [
-    'Home' => 'Home',
     'About' => 'Despre',
     'Contact' => 'Contact',
-    'Login' => 'Intra',
-    'Logout' => 'Iesi',
-    'Signup' => 'Înregistreaza-te',
+    'Home' => 'Home',
+    'Logout' => 'Log out',
+    'Sign up' => 'Inscrie-te',
+    'Log in' => '',
 ];
