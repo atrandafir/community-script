@@ -19,10 +19,12 @@
 return [
     'Email' => 'Email',
     'Password' => 'Parola',
+    'Sign up' => 'Inscrie-te',
     'Thank you for registration. Please check your inbox for verification email.' => 'Iti mulțumim pentru înregistrare. Verifică-ți căsuța de e-mail pentru e-mailul de verificare.',
     'The username can only contain letters from A to Z, numbers from 0 to 9 and the underscore \'_\'.' => 'Username-ul poate contine doar litere de la A la Z, numere de la 0 la 9 si liniuta de jos \'_\'.',
     'This email address has already been taken.' => 'Această adresă de e-mail a fost deja luată.',
     'This username has already been taken.' => 'Acest nume de utilizator a fost deja luat.',
     'Username' => 'Username',
-    'Sign up' => 'Inscrie-te',
+    'Full name' => 'Nume complet',
+    'Spaces and special characters are not allowed.' => 'Spațiile și caracterele speciale nu sunt permise.',
 ];
