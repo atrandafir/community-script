@@ -4,6 +4,7 @@ namespace common\models;
 
 use Yii;
 use yii\base\Model;
+use common\models\User;
 
 /**
  * Login form
@@ -13,7 +14,12 @@ class LoginForm extends Model
     public $username;
     public $password;
     public $rememberMe = true;
+    
+    public $is_backend = false;
 
+    /**
+     * @var User
+     */
     private $_user;
 
 
@@ -65,6 +71,8 @@ class LoginForm extends Model
     public function login()
     {
         if ($this->validate()) {
+            $user=$this->getUser();
+            $user->updateLastLogin(); 
             return Yii::$app->user->login($this->getUser(), $this->rememberMe ? 3600 * 24 * 30 : 0);
         }
         
@@ -83,6 +91,11 @@ class LoginForm extends Model
         }
         if ($this->_user === null) {
             $this->_user = User::findByEmail($this->username);
+        }
+        
+        // check admin
+        if ($this->is_backend && !$this->_user->admin) {
+          return null;
         }
 
         return $this->_user;

@@ -12,6 +12,7 @@ use common\models\User;
 class SignupForm extends Model
 {
     public $username;
+    public $fullname;
     public $email;
     public $password;
 
@@ -36,6 +37,9 @@ class SignupForm extends Model
 
             ['password', 'required'],
             ['password', 'string', 'min' => Yii::$app->params['user.passwordMinLength']],
+            
+            ['fullname', 'trim'],
+            ['fullname', 'string', 'max' => 128],
         ];
     }
     
@@ -46,6 +50,7 @@ class SignupForm extends Model
     {
         return [
             'username' => Yii::t('front.signup', 'Username'),
+            'fullname' => Yii::t('front.signup', 'Full name'),
             'email' => Yii::t('front.signup', 'Email'),
             'password' => Yii::t('front.signup', 'Password'),
         ];
@@ -64,6 +69,7 @@ class SignupForm extends Model
         
         $user = new User();
         $user->username = $this->username;
+        $user->fullname = $this->fullname;
         $user->email = $this->email;
         $user->setPassword($this->password);
         $user->generateAuthKey();

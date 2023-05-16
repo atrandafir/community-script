@@ -20,7 +20,8 @@ $this->params['breadcrumbs'][] = $this->title;
                 'enableClientValidation'=>false,
               ]); ?>
 
-                <?= $form->field($model, 'username')->textInput(['autofocus' => true]) ?>
+                <?= $form->field($model, 'username')->textInput(['autofocus' => true])->hint(Yii::t('front.signup', 'Spaces and special characters are not allowed.')) ?>
+                <?= $form->field($model, 'fullname')->textInput() ?>
 
                 <?= $form->field($model, 'email') ?>
 

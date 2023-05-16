@@ -13,6 +13,12 @@ class MultiLingualController extends Controller {
         if ($languageGet) {
             Yii::$app->language = $languageGet;
         }
+        
+        // Update last login
+        if (!Yii::$app->user->isGuest) {
+          Yii::$app->user->identity->updateLastLogin();
+        }
+        
         parent::init();
     }
     

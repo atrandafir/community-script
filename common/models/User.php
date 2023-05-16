@@ -13,12 +13,25 @@ use yii\web\IdentityInterface;
  *
  * @property integer $id
  * @property string $username
+ * 
+ * @property string $fullname
+ * 
  * @property string $password_hash
  * @property string $password_reset_token
  * @property string $verification_token
  * @property string $email
+ * 
+ * @property string $location
+ * @property string $photo
+ * @property integer $photo_approved
+ * 
  * @property string $auth_key
  * @property integer $status
+ * 
+ * @property integer $member_since
+ * @property integer $last_login_at
+ * @property integer $admin
+ * 
  * @property integer $created_at
  * @property integer $updated_at
  * @property string $password write-only password
@@ -54,6 +67,14 @@ class User extends ActiveRecord implements IdentityInterface
     public function rules()
     {
         return [
+            ['fullname', 'trim'],
+            ['fullname', 'string', 'max' => 128],
+            ['location', 'string', 'max' => 255],
+            ['photo', 'string', 'max' => 255],
+            ['photo_approved', 'integer'],
+            ['member_since', 'integer'],
+            ['last_login_at', 'integer'],
+            ['admin', 'integer'],
             ['status', 'default', 'value' => self::STATUS_INACTIVE],
             ['status', 'in', 'range' => [self::STATUS_ACTIVE, self::STATUS_INACTIVE, self::STATUS_DELETED]],
         ];
@@ -209,5 +230,24 @@ class User extends ActiveRecord implements IdentityInterface
     public function removePasswordResetToken()
     {
         $this->password_reset_token = null;
+    }
+    
+    public function beforeValidate() {
+      if (parent::beforeValidate()) {
+        if (empty($this->member_since)) {
+          $this->member_since= time();
+        }
+        
+        return true;
+      }
+    }
+    
+    public function updateLastLogin() {
+      $last_login_at = Yii::$app->session['last_login_at'];
+      $update_period = 60 * 2; # every 2 minutes
+      if (!$last_login_at || ((time() - ($last_login_at)) > $update_period)) {
+        $this->touch('last_login_at');
+        Yii::$app->session['last_login_at'] = $this->last_login_at;
+      }
     }
 }
