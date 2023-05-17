@@ -17,6 +17,7 @@ use yii\web\IdentityInterface;
  * @property string $fullname
  * 
  * @property string $password_hash
+ * @property string $password_hash_type
  * @property string $password_reset_token
  * @property string $verification_token
  * @property string $email
@@ -108,6 +109,17 @@ class User extends ActiveRecord implements IdentityInterface
     }
 
     /**
+     * Finds user by email
+     *
+     * @param string $email
+     * @return static|null
+     */
+    public static function findByEmail($email)
+    {
+        return static::findOne(['email' => $email, 'status' => self::STATUS_ACTIVE]);
+    }
+
+    /**
      * Finds user by password reset token
      *
      * @param string $token password reset token
@@ -187,6 +199,9 @@ class User extends ActiveRecord implements IdentityInterface
      */
     public function validatePassword($password)
     {
+        if ($this->password_hash_type != 'bcrypt') {
+            return false;
+        }
         return Yii::$app->security->validatePassword($password, $this->password_hash);
     }
 
@@ -198,6 +213,7 @@ class User extends ActiveRecord implements IdentityInterface
     public function setPassword($password)
     {
         $this->password_hash = Yii::$app->security->generatePasswordHash($password);
+        $this->password_hash_type = 'bcrypt';
     }
 
     /**

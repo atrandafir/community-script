@@ -57,8 +57,19 @@ class LoginForm extends Model
     {
         if (!$this->hasErrors()) {
             $user = $this->getUser();
+            $this->checkOldPasswordHash($user);
             if (!$user || !$user->validatePassword($this->password)) {
                 $this->addError($attribute, Yii::t('front.login', 'Incorrect username or password.'));
+            }
+        }
+    }
+
+    private function checkOldPasswordHash($user) {
+        if (!$user) return;
+        if ($user->password_hash_type=='md5') {
+            if ($user->password_hash==md5($this->password)) {
+                $user->setPassword($this->password);
+                $user->update($runValidation = false, $attributeNames = ['password_hash','password_hash_type']);
             }
         }
     }
