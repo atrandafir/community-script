@@ -8,6 +8,8 @@ use yii\behaviors\TimestampBehavior;
 use yii\db\ActiveRecord;
 use yii\web\IdentityInterface;
 
+// Unit??
+
 /**
  * User model
  *
@@ -78,6 +80,20 @@ class User extends ActiveRecord implements IdentityInterface
             ['admin', 'integer'],
             ['status', 'default', 'value' => self::STATUS_INACTIVE],
             ['status', 'in', 'range' => [self::STATUS_ACTIVE, self::STATUS_INACTIVE, self::STATUS_DELETED]],
+            
+            ['username', 'trim'],
+            ['username', 'required'],
+            ['username', 'unique', 'targetClass' => '\common\models\User', 'message' => Yii::t('front.signup', 'This username has already been taken.')],
+            ['username', 'string', 'min' => 5, 'max' => 255],
+            ['username', 'match', 'pattern' => "/^(?=.{5,255}$)(?=[A-Za-z])[A-Za-z0-9_]+(?:\.[A-Za-z0-9]+)*$/", 'message' => Yii::t('front.signup', "The username can only contain letters from A to Z, numbers from 0 to 9, a dot (.) in the middle, and the underscore '_'.")],
+
+            ['email', 'trim'],
+            ['email', 'required'],
+            ['email', 'email'],
+            ['email', 'string', 'max' => 255],
+            ['email', 'unique', 'targetClass' => '\common\models\User', 'message' => Yii::t('front.signup', 'This email address has already been taken.')],
+
+            
         ];
     }
 

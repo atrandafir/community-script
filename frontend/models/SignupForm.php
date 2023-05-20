@@ -5,6 +5,7 @@ namespace frontend\models;
 use Yii;
 use yii\base\Model;
 use common\models\User;
+use common\helpers\Tools;
 
 /**
  * Signup form
@@ -25,15 +26,9 @@ class SignupForm extends Model
         return [
             ['username', 'trim'],
             ['username', 'required'],
-            ['username', 'unique', 'targetClass' => '\common\models\User', 'message' => Yii::t('front.signup', 'This username has already been taken.')],
-            ['username', 'string', 'min' => 2, 'max' => 255],
-            ['username', 'match', 'pattern' => "/^([a-zA-Z0-9_])+$/", 'message' => Yii::t('front.signup', "The username can only contain letters from A to Z, numbers from 0 to 9 and the underscore '_'.")],
 
             ['email', 'trim'],
             ['email', 'required'],
-            ['email', 'email'],
-            ['email', 'string', 'max' => 255],
-            ['email', 'unique', 'targetClass' => '\common\models\User', 'message' => Yii::t('front.signup', 'This email address has already been taken.')],
 
             ['password', 'required'],
             ['password', 'string', 'min' => Yii::$app->params['user.passwordMinLength']],
@@ -74,6 +69,11 @@ class SignupForm extends Model
         $user->setPassword($this->password);
         $user->generateAuthKey();
         $user->generateEmailVerificationToken();
+        
+        if (!$user->validate()) {
+            Tools::copyErrors($user, $this);
+            return null;
+        }
 
         return $user->save() && $this->sendEmail($user);
     }

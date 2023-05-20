@@ -69,4 +69,46 @@ class SignupFormTest extends \Codeception\Test\Unit
         verify($model->getFirstError('email'))
             ->equals('This email address has already been taken.');
     }
+
+    public function testValidAndInvalidUsernames()
+    {
+        foreach ([
+          'john__doe'=>'valid',
+          'john_doe'=>'valid',
+          'john.doe'=>'valid',
+          'john.doe78'=>'valid',
+          'johndoe.'=>'invalid',
+          '.johndoe'=>'invalid',
+          '4johndoe'=>'invalid',
+          'johndoe$'=>'invalid',
+        ] as $username => $result) {
+          
+          
+          
+          $model = new SignupForm([
+            'username' => $username,
+            'email' => "{$username}@hotmail.com",
+            'password' => 'some_password',
+          ]);
+            
+          try {
+            
+            if ($result=='valid') {
+              verify($model->signup())->notEmpty();
+              verify($model->getErrors('username'))->empty();
+            } elseif ($result=='invalid') {
+              verify($model->signup())->empty();
+              verify($model->getErrors('username'))->notEmpty();
+            }
+            
+          } catch (\Throwable $t) {
+            $this->fail("{$username} {$result} FALIED.");
+//            fwrite(STDERR, print_r($username, true));
+//            throw $t;
+          }
+
+          
+          
+        }
+    }
 }
