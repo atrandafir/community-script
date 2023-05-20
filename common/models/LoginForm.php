@@ -65,6 +65,7 @@ class LoginForm extends Model
     }
 
     private function checkOldPasswordHash($user) {
+        /** @var \common\models\User $user */
         if (!$user) return;
         if ($user->password_hash_type=='md5') {
             if ($user->password_hash==md5($this->password)) {

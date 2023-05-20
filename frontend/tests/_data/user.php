@@ -42,4 +42,16 @@ return [
         'updated_at' => '1548675330',
         'verification_token' => 'already_used_token_1548675330',
     ],
+    [
+        'username' => 'mymd5user',
+        'auth_key' => 'HP187Mvq7Mmm3CTU80dLkGmni_FUH_lR',
+        //mymd5password
+        'password_hash' => '89df8d351a94ac84b6c4490dc05011c5',
+        'password_hash_type' => 'md5',
+        'password_reset_token' => 'z5GU9NwpuGYSfb7FEZMAxqtuz2PkEvv_' . time(),
+        'created_at' => '1402312317',
+        'updated_at' => '1402312317',
+        'email' => 'mymd5user@schultz.info',
+        'status' => '10',
+    ],
 ];

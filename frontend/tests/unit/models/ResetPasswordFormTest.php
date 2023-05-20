@@ -40,5 +40,29 @@ class ResetPasswordFormTest extends \Codeception\Test\Unit
         $form = new ResetPasswordForm($user['password_reset_token']);
         verify($form->resetPassword())->notEmpty();
     }
+    
+    public function testMd5ToBcryptAfterReset() {
+      
+      /** @var \common\models\User $user */
+      $user = $this->tester->grabRecord('common\models\User', [
+          'username' => 'mymd5user',
+      ]);
+      
+      $form = new ResetPasswordForm($user->password_reset_token);
+      $form->password='new_password';
+      verify($form->resetPassword())->notEmpty();
+      
+      // reload user
+      $user = $this->tester->grabRecord('common\models\User', [
+          'username' => 'mymd5user',
+      ]);
+      
+      // verify now password hash type has been changed
+      verify($user->password_hash_type)->equals('bcrypt');
+      
+      // verify user pwd can be validated
+      verify($user->validatePassword($form->password))->true();
+      
+    }
 
 }
