@@ -9,7 +9,7 @@ class I18N extends BaseI18N {
     public function translate($category, $message, $params, $language) {
         
         $prefix=null;
-        if (YII_DEBUG) {
+        if (YII_DEBUG && YII_ENV != 'test') {
             $prefix='[L]';
         }
         
