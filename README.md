@@ -112,3 +112,61 @@ frontend
 vendor/                  contains dependent 3rd-party packages
 environments/            contains environment-based overrides
 ```
+
+UNIT TESTING SETUP & COMMANDS
+-------------------
+
+General instructions can be read at the [Yii 2 Advanced Template testing guide](https://github.com/yiisoft/yii2-app-advanced/blob/master/docs/guide/start-testing.md).
+
+Summarized tutorial:  
+
+Create a new database suffixed with `_test`, example: `community_script_test`.
+
+Setup config at `common/config/test-local.php`:  
+
+```
+return [
+    // force english language on tests
+    'language' => 'en-US',
+    'components' => [
+        'db' => [
+            'class' => \yii\db\Connection::class,
+            'dsn' => 'mysql:host=localhost;dbname=community_script_test',
+            'username' => 'root',
+            'password' => '',
+            'charset' => 'utf8',
+        ],
+    ],
+];
+```
+
+Run migrations:  
+
+```
+php yii_test migrate
+```
+
+Build test suite:  
+
+```
+php vendor/bin/codecept build
+```
+
+Run all tests:  
+
+```
+php vendor/bin/codecept run
+```
+
+Run only specific tests:  
+
+```
+// Test only frontend application by specifying config path
+php vendor/bin/codecept -c frontend run
+
+// Test a single class from the common directory
+php vendor/bin/codecept -c common run unit models/LoginFormTest
+
+// Test a single class and method from the common directory
+php vendor/bin/codecept -c common run unit models/LoginFormTest:testLastLoginIsUpdated
+```
