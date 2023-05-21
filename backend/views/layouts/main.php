@@ -39,6 +39,9 @@ AppAsset::register($this);
     $menuItems = [
         ['label' => Yii::t('back.menu', 'Home'), 'url' => ['/site/index']],
         ['label' => Yii::t('back.menu', 'Users'), 'url' => ['/user/index']],
+        ['label' => Yii::t('back.menu', 'Categories'), 'url' => ['/category/index']],
+        ['label' => Yii::t('back.menu', 'Posts'), 'url' => ['/post/index']],
+        ['label' => Yii::t('back.menu', 'Comments'), 'url' => ['/comment/index']],
     ];
     
     $menuItems[] = ['label' => 'Language', 'items' => LanguageHelper::languageLinksForNav()];
