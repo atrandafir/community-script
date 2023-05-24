@@ -1,11 +1,11 @@
 <?php
 
-use yii\helpers\Html;
-use yii\widgets\ActiveForm;
+use yii\bootstrap5\Html;
+use yii\bootstrap5\ActiveForm;
 
 /** @var yii\web\View $this */
 /** @var backend\models\CategorySearch $model */
-/** @var yii\widgets\ActiveForm $form */
+/** @var yii\bootstrap5\ActiveForm $form */
 ?>
 
 <div class="category-search">
@@ -23,7 +23,7 @@ use yii\widgets\ActiveForm;
 
     <?= $form->field($model, 'updated_at') ?>
 
-    <div class="form-group">
+    <div class="mb-3">
         <?= Html::submitButton(Yii::t('backend.category', 'Search'), ['class' => 'btn btn-primary']) ?>
         <?= Html::resetButton(Yii::t('backend.category', 'Reset'), ['class' => 'btn btn-outline-secondary']) ?>
     </div>

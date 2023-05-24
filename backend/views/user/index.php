@@ -18,7 +18,7 @@ $this->params['breadcrumbs'][] = $this->title;
     <h1><?= Html::encode($this->title) ?></h1>
 
     <p>
-        <?= Html::a(Yii::t('back.user', 'Create User'), ['create'], ['class' => 'btn btn-success']) ?>
+        <?= Html::a(Yii::t('back.user', 'Create user'), ['create'], ['class' => 'btn btn-success']) ?>
     </p>
 
     <?php // echo $this->render('_search', ['model' => $searchModel]); ?>
@@ -28,19 +28,15 @@ $this->params['breadcrumbs'][] = $this->title;
         'dataProvider' => $dataProvider,
         'filterModel' => $searchModel,
         'columns' => [
-            ['class' => 'yii\grid\SerialColumn'],
-
             'id',
             'username',
-            //'auth_key',
-            //'password_hash',
-            //'password_reset_token',
+            'fullname',
             'email:email',
+            'photo',
             'status',
-            'created_at',
-            'updated_at',
-            //'verification_token',
-            'lang',
+            'admin',
+            'member_since:datetime',
+            'last_login_at:datetime',
             [
                 'class' => ActionColumn::className(),
                 'urlCreator' => function ($action, User $model, $key, $index, $column) {

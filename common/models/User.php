@@ -96,6 +96,21 @@ class User extends ActiveRecord implements IdentityInterface
             
         ];
     }
+    
+    public function attributeLabels(): array {
+        return [
+            'username'=>Yii::t('models.user.username', 'Username'),
+            'fullname'=>Yii::t('models.user.fullname', 'Full name'),
+            'email'=>Yii::t('models.user.email', 'Email'),
+            'location'=>Yii::t('models.user.location', 'Location'),
+            'photo'=>Yii::t('models.user.photo', 'Photo'),
+            'photo_approved'=>Yii::t('models.user.photo_approved', 'Photo approved'),
+            'status'=>Yii::t('models.user.status', 'Status'),
+            'member_since'=>Yii::t('models.user.member_since', 'Member since'),
+            'last_login_at'=>Yii::t('models.user.last_login_at', 'Last login'),
+            'admin'=>Yii::t('models.user.admin', 'Admin'),
+        ];
+    }
 
     /**
      * {@inheritdoc}
