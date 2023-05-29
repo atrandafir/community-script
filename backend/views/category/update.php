@@ -5,7 +5,7 @@ use yii\bootstrap5\Html;
 /** @var yii\web\View $this */
 /** @var common\models\Category $model */
 
-$this->title = Yii::t('backend.category', 'Update Category: {name}', [
+$this->title = Yii::t('backend.category', 'Update category: {name}', [
     'name' => $model->name,
 ]);
 $this->params['breadcrumbs'][] = ['label' => Yii::t('backend.category', 'Categories'), 'url' => ['index']];

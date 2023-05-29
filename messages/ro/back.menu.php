@@ -17,7 +17,10 @@
  * NOTE: this file must be saved in UTF-8 encoding.
  */
 return [
-    'Home' => '',
-    'Logout' => '',
-    'Users' => '',
+    'Categories' => 'Categorii',
+    'Comments' => 'Comentarii',
+    'Home' => 'Acasa',
+    'Logout' => 'Logout',
+    'Posts' => 'Postari',
+    'Users' => 'Useri',
 ];

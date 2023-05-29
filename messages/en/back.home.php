@@ -17,8 +17,6 @@
  * NOTE: this file must be saved in UTF-8 encoding.
  */
 return [
-    'Create User' => '',
-    'Create user' => '',
-    'Update User: {name}' => '',
-    'Users' => '',
+    'From here you can manage your Community-Script platform.' => '',
+    'Welcome to the back office!' => '',
 ];

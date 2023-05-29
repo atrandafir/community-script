@@ -23,7 +23,7 @@ return [
     'Sign up' => '',
     'Spaces and special characters are not allowed.' => '',
     'Thank you for registration. Please check your inbox for verification email.' => '',
-    'The username can only contain letters from A to Z, numbers from 0 to 9 and the underscore \'_\'.' => '',
+    'The username can only contain letters from A to Z, numbers from 0 to 9, a dot (.) in the middle, and the underscore \'_\'.' => '',
     'This email address has already been taken.' => '',
     'This username has already been taken.' => '',
     'Username' => '',

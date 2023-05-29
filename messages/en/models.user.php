@@ -17,8 +17,14 @@
  * NOTE: this file must be saved in UTF-8 encoding.
  */
 return [
-    'Create User' => '',
-    'Create user' => '',
-    'Update User: {name}' => '',
-    'Users' => '',
+    'Admin' => '',
+    'Email' => '',
+    'Full name' => '',
+    'Last login' => '',
+    'Location' => '',
+    'Member since' => '',
+    'Photo' => '',
+    'Photo approved' => '',
+    'Status' => '',
+    'Username' => '',
 ];

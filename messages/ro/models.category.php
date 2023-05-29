@@ -17,8 +17,7 @@
  * NOTE: this file must be saved in UTF-8 encoding.
  */
 return [
-    'Create User' => '',
-    'Create user' => '',
-    'Update User: {name}' => '',
-    'Users' => '',
+    'Created At' => 'Creat',
+    'Name' => 'Nume',
+    'Updated At' => 'Modificat',
 ];

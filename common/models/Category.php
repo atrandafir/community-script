@@ -50,9 +50,9 @@ class Category extends \yii\db\ActiveRecord {
   public function attributeLabels() {
     return [
         'id' => 'ID',
-        'name' => 'Name',
-        'created_at' => 'Created At',
-        'updated_at' => 'Updated At',
+        'name' => Yii::t('models.category', 'Name'),
+        'created_at' => Yii::t('models.category','Created At'),
+        'updated_at' => Yii::t('models.category','Updated At'),
     ];
   }
 

@@ -17,8 +17,14 @@
  * NOTE: this file must be saved in UTF-8 encoding.
  */
 return [
-    'Create User' => '',
-    'Create user' => '',
-    'Update User: {name}' => '',
-    'Users' => '',
+    'Are you sure you want to delete this item?' => '',
+    'Comments' => '',
+    'Create Comment' => '',
+    'Delete' => '',
+    'Reset' => '',
+    'Save' => '',
+    'Search' => '',
+    'The requested page does not exist.' => '',
+    'Update' => '',
+    'Update Comment: {name}' => '',
 ];

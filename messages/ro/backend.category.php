@@ -17,8 +17,14 @@
  * NOTE: this file must be saved in UTF-8 encoding.
  */
 return [
-    'Create User' => '',
-    'Create user' => '',
-    'Update User: {name}' => '',
-    'Users' => '',
+    'Are you sure you want to delete this item?' => 'Sigur vrei sa stergi acest item?',
+    'Categories' => 'Categorii',
+    'Create category' => 'Creeaza categorie',
+    'Delete' => 'Sterge',
+    'Reset' => 'Reseteaza',
+    'Save' => 'Salveaza',
+    'Search' => 'Cauta',
+    'The requested page does not exist.' => 'Pagina nu exista',
+    'Update' => 'Modifica',
+    'Update category: {name}' => 'Modifica categorie: {name}',
 ];

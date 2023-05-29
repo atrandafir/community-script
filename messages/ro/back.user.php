@@ -18,6 +18,7 @@
  */
 return [
     'Create User' => '',
+    'Create user' => '',
     'Update User: {name}' => '',
     'Users' => '',
 ];

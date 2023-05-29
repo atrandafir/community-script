@@ -170,3 +170,11 @@ php vendor/bin/codecept -c common run unit models/LoginFormTest
 // Test a single class and method from the common directory
 php vendor/bin/codecept -c common run unit models/LoginFormTest:testLastLoginIsUpdated
 ```
+
+### Common commands
+
+## Translations
+
+Run the following to extract messages: 
+
+yii message common/config/messages.php

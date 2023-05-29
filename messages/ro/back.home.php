@@ -17,8 +17,6 @@
  * NOTE: this file must be saved in UTF-8 encoding.
  */
 return [
-    'Create User' => '',
-    'Create user' => '',
-    'Update User: {name}' => '',
-    'Users' => '',
+    'From here you can manage your Community-Script platform.' => 'De aici poti gestiona platforma ta Community-Script.',
+    'Welcome to the back office!' => 'Bun venit la panoul de control!',
 ];
