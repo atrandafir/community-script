@@ -1,13 +1,13 @@
 <?php
 
-use yii\helpers\Html;
+use yii\bootstrap5\Html;
 use yii\widgets\DetailView;
 
-/* @var $this yii\web\View */
-/* @var $model common\models\User */
+/** @var yii\web\View $this */
+/** @var common\models\User $model */
 
-$this->title = $model->username;
-$this->params['breadcrumbs'][] = ['label' => Yii::t('back.user', 'Users'), 'url' => ['index']];
+$this->title = $model->id;
+$this->params['breadcrumbs'][] = ['label' => Yii::t('backend.user', 'Users'), 'url' => ['index']];
 $this->params['breadcrumbs'][] = $this->title;
 \yii\web\YiiAsset::register($this);
 ?>
@@ -16,11 +16,11 @@ $this->params['breadcrumbs'][] = $this->title;
     <h1><?= Html::encode($this->title) ?></h1>
 
     <p>
-        <?= Html::a(Yii::t('back.general', 'Update'), ['update', 'id' => $model->id], ['class' => 'btn btn-primary']) ?>
-        <?= Html::a(Yii::t('back.general', 'Delete'), ['delete', 'id' => $model->id], [
+        <?= Html::a(Yii::t('backend.user', 'Update'), ['update', 'id' => $model->id], ['class' => 'btn btn-primary']) ?>
+        <?= Html::a(Yii::t('backend.user', 'Delete'), ['delete', 'id' => $model->id], [
             'class' => 'btn btn-danger',
             'data' => [
-                'confirm' => Yii::t('back.general', 'Are you sure you want to delete this item?'),
+                'confirm' => Yii::t('backend.user', 'Are you sure you want to delete this item?'),
                 'method' => 'post',
             ],
         ]) ?>
@@ -32,6 +32,10 @@ $this->params['breadcrumbs'][] = $this->title;
             'id',
             'username',
             'fullname',
+            'auth_key',
+            'password_hash',
+            'password_hash_type',
+            'password_reset_token',
             'email:email',
             'location',
             'photo',
@@ -40,6 +44,9 @@ $this->params['breadcrumbs'][] = $this->title;
             'member_since',
             'last_login_at',
             'admin',
+            'created_at',
+            'updated_at',
+            'verification_token',
         ],
     ]) ?>
 

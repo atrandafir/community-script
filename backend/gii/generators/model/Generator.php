@@ -5,7 +5,7 @@
  * @license https://www.yiiframework.com/license/
  */
 
-namespace yii\gii\generators\model;
+namespace backend\gii\generators\model;
 
 use Yii;
 use yii\base\InvalidConfigException;
@@ -28,11 +28,11 @@ use yii\helpers\StringHelper;
  */
 class Generator extends \yii\gii\Generator
 {
-    const RELATIONS_NONE = 'none';
-    const RELATIONS_ALL = 'all';
-    const RELATIONS_ALL_INVERSE = 'all-inverse';
-    const JUNCTION_RELATION_VIA_TABLE = 'table';
-    const JUNCTION_RELATION_VIA_MODEL = 'model';
+    public const RELATIONS_NONE = 'none';
+    public const RELATIONS_ALL = 'all';
+    public const RELATIONS_ALL_INVERSE = 'all-inverse';
+    public const JUNCTION_RELATION_VIA_TABLE = 'table';
+    public const JUNCTION_RELATION_VIA_MODEL = 'model';
 
     public $db = 'db';
     public $ns = 'app\models';
@@ -360,7 +360,7 @@ class Generator extends \yii\gii\Generator
                 default:
                     $type = $column->phpType;
             }
-            if ($column->allowNull){
+            if ($column->allowNull) {
                 $type .= '|null';
             }
             $properties[$column->name] = [
@@ -405,9 +405,10 @@ class Generator extends \yii\gii\Generator
      * @return array
      * @since 2.1.4
      */
-    public function generateRelationsClassHints($relations, $generateQuery){
+    public function generateRelationsClassHints($relations, $generateQuery)
+    {
         $result = [];
-        foreach ($relations as $name => $relation){
+        foreach ($relations as $name => $relation) {
             // The queryNs options available if generateQuery is active
             if ($generateQuery) {
                 $queryClassRealName = '\\' . $this->queryNs . '\\' . $relation[1];
@@ -415,12 +416,12 @@ class Generator extends \yii\gii\Generator
                     /** @var \yii\db\ActiveQuery $activeQuery */
                     $activeQuery = $queryClassRealName::find();
                     $activeQueryClass = $activeQuery::className();
-                    if (strpos($activeQueryClass, $this->ns) === 0){
+                    if (strpos($activeQueryClass, $this->ns) === 0) {
                         $activeQueryClass = StringHelper::basename($activeQueryClass);
                     }
                     $result[$name] = '\yii\db\ActiveQuery|' . $activeQueryClass;
                 } else {
-                    $result[$name] = '\yii\db\ActiveQuery|' . (($this->ns === $this->queryNs) ? $relation[1]: '\\' . $this->queryNs . '\\' . $relation[1]) . 'Query';
+                    $result[$name] = '\yii\db\ActiveQuery|' . (($this->ns === $this->queryNs) ? $relation[1] : '\\' . $this->queryNs . '\\' . $relation[1]) . 'Query';
                 }
             } else {
                 $result[$name] = '\yii\db\ActiveQuery';

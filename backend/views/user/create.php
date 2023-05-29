@@ -1,12 +1,12 @@
 <?php
 
-use yii\helpers\Html;
+use yii\bootstrap5\Html;
 
-/* @var $this yii\web\View */
-/* @var $model common\models\User */
+/** @var yii\web\View $this */
+/** @var common\models\User $model */
 
-$this->title = Yii::t('back.user', 'Create User');
-$this->params['breadcrumbs'][] = ['label' => Yii::t('back.user', 'Users'), 'url' => ['index']];
+$this->title = Yii::t('backend.user', 'Create User');
+$this->params['breadcrumbs'][] = ['label' => Yii::t('backend.user', 'Users'), 'url' => ['index']];
 $this->params['breadcrumbs'][] = $this->title;
 ?>
 <div class="user-create">

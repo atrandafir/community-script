@@ -19,6 +19,20 @@ if (!YII_ENV_TEST) {
     $config['bootstrap'][] = 'gii';
     $config['modules']['gii'] = [
         'class' => \yii\gii\Module::class,
+        'generators' => [ // here
+            'crud' => [ // generator name
+                'class' => 'backend\gii\generators\crud\Generator', // generator class
+                'templates' => [ // setting for our templates
+                    'community-script' => '@backend/gii/generators/crud/default', // template name => path to template
+                ]
+            ],
+            'model' => [ // generator name
+                'class' => 'backend\gii\generators\model\Generator', // generator class
+                'templates' => [ // setting for our templates
+                    'community-script' => '@backend/gii/generators/model/default',
+                ]
+            ]
+        ]
     ];
 }
 

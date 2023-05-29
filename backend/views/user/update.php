@@ -1,16 +1,16 @@
 <?php
 
-use yii\helpers\Html;
+use yii\bootstrap5\Html;
 
-/* @var $this yii\web\View */
-/* @var $model common\models\User */
+/** @var yii\web\View $this */
+/** @var common\models\User $model */
 
-$this->title = Yii::t('back.user', 'Update User: {name}', [
+$this->title = Yii::t('backend.user', 'Update User: {name}', [
     'name' => $model->id,
 ]);
-$this->params['breadcrumbs'][] = ['label' => Yii::t('back.user', 'Users'), 'url' => ['index']];
+$this->params['breadcrumbs'][] = ['label' => Yii::t('backend.user', 'Users'), 'url' => ['index']];
 $this->params['breadcrumbs'][] = ['label' => $model->id, 'url' => ['view', 'id' => $model->id]];
-$this->params['breadcrumbs'][] = Yii::t('back.general', 'Update');
+$this->params['breadcrumbs'][] = Yii::t('backend.user', 'Update');
 ?>
 <div class="user-update">
 

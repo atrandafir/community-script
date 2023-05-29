@@ -5,7 +5,7 @@
  * @license https://www.yiiframework.com/license/
  */
 
-namespace yii\gii\generators\crud;
+namespace backend\gii\generators\crud;
 
 use Yii;
 use yii\db\ActiveRecord;
@@ -46,7 +46,7 @@ class Generator extends \yii\gii\Generator
     /**
      * @var string
      */
-    public $baseControllerClass = 'yii\web\Controller';
+    public $baseControllerClass = 'common\components\MultiLingualController';
     /**
      * @var string
      */
@@ -467,7 +467,7 @@ class Generator extends \yii\gii\Generator
                     break;
                 default:
                     $likeKeyword = $this->getClassDbDriverName() === 'pgsql' ? 'ilike' : 'like';
-                    $likeConditions[] = "->andFilterWhere(['{$likeKeyword}', '{$column}', \$this->{$column}])";                    
+                    $likeConditions[] = "->andFilterWhere(['{$likeKeyword}', '{$column}', \$this->{$column}])";
                     break;
             }
         }

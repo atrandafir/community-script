@@ -17,11 +17,8 @@ class UserSearch extends User
     public function rules()
     {
         return [
-            [['id', 'status', 'created_at', 'updated_at'], 'integer'],
-            [[
-                'username', 'auth_key', 'password_hash', 'password_reset_token', 'email', 'verification_token', 
-//                'lang',
-            ], 'safe'],
+            [['id', 'photo_approved', 'status', 'member_since', 'last_login_at', 'admin', 'created_at', 'updated_at'], 'integer'],
+            [['username', 'fullname', 'auth_key', 'password_hash', 'password_hash_type', 'password_reset_token', 'email', 'location', 'photo', 'verification_token'], 'safe'],
         ];
     }
 
@@ -62,19 +59,25 @@ class UserSearch extends User
         // grid filtering conditions
         $query->andFilterWhere([
             'id' => $this->id,
+            'photo_approved' => $this->photo_approved,
             'status' => $this->status,
+            'member_since' => $this->member_since,
+            'last_login_at' => $this->last_login_at,
+            'admin' => $this->admin,
             'created_at' => $this->created_at,
             'updated_at' => $this->updated_at,
         ]);
 
         $query->andFilterWhere(['like', 'username', $this->username])
+            ->andFilterWhere(['like', 'fullname', $this->fullname])
             ->andFilterWhere(['like', 'auth_key', $this->auth_key])
             ->andFilterWhere(['like', 'password_hash', $this->password_hash])
+            ->andFilterWhere(['like', 'password_hash_type', $this->password_hash_type])
             ->andFilterWhere(['like', 'password_reset_token', $this->password_reset_token])
             ->andFilterWhere(['like', 'email', $this->email])
-            ->andFilterWhere(['like', 'verification_token', $this->verification_token])
-//            ->andFilterWhere(['like', 'lang', $this->lang])
-                ;
+            ->andFilterWhere(['like', 'location', $this->location])
+            ->andFilterWhere(['like', 'photo', $this->photo])
+            ->andFilterWhere(['like', 'verification_token', $this->verification_token]);
 
         return $dataProvider;
     }
