@@ -171,10 +171,13 @@ php vendor/bin/codecept -c common run unit models/LoginFormTest
 php vendor/bin/codecept -c common run unit models/LoginFormTest:testLastLoginIsUpdated
 ```
 
-### Common commands
+Common commands
+-------------------
 
 ## Translations
 
 Run the following to extract messages: 
 
+```
 yii message common/config/messages.php
+```
