@@ -23,6 +23,7 @@ return [
     'Last login' => '',
     'Location' => '',
     'Member since' => '',
+    'Password' => '',
     'Photo' => '',
     'Photo approved' => '',
     'Status' => '',

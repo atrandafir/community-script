@@ -21,10 +21,8 @@ return [
     'Categories' => 'Categorii',
     'Create category' => 'Creeaza categorie',
     'Delete' => 'Sterge',
-    'Reset' => 'Reseteaza',
     'Save' => 'Salveaza',
-    'Search' => 'Cauta',
-    'The requested page does not exist.' => 'Pagina nu exista',
+    'The requested page does not exist.' => 'Pagina nu exista.',
     'Update' => 'Modifica',
     'Update category: {name}' => 'Modifica categorie: {name}',
 ];

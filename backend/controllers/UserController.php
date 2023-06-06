@@ -78,6 +78,7 @@ class UserController extends MultiLingualController
     public function actionCreate()
     {
         $model = new User();
+        $model->require_new_password=true;
 
         if ($this->request->isPost) {
             if ($model->load($this->request->post()) && $model->save()) {

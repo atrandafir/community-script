@@ -44,6 +44,9 @@ class User extends ActiveRecord implements IdentityInterface
     const STATUS_DELETED = 0;
     const STATUS_INACTIVE = 9;
     const STATUS_ACTIVE = 10;
+    
+    public $new_password;
+    public $require_new_password=false;
 
 
     /**
@@ -92,13 +95,23 @@ class User extends ActiveRecord implements IdentityInterface
             ['email', 'email'],
             ['email', 'string', 'max' => 255],
             ['email', 'unique', 'targetClass' => '\common\models\User', 'message' => Yii::t('front.signup', 'This email address has already been taken.')],
-
+            
+            // todo: add password minimum validation both here and on sign-up?
+            // also we could set this as a param in configuration if someone wants to customize
+            ['new_password', 'string', 'min' => 6],
+            ['new_password', 'required', 'when'=> function (User $model) {
+              if ($model->require_new_password) {
+                return true;
+              }
+              return false;
+            }],
             
         ];
     }
     
     public function attributeLabels(): array {
         return [
+            'id'=>'ID',
             'username'=>Yii::t('models.user', 'Username'),
             'fullname'=>Yii::t('models.user', 'Full name'),
             'email'=>Yii::t('models.user', 'Email'),
@@ -109,6 +122,7 @@ class User extends ActiveRecord implements IdentityInterface
             'member_since'=>Yii::t('models.user', 'Member since'),
             'last_login_at'=>Yii::t('models.user', 'Last login'),
             'admin'=>Yii::t('models.user', 'Admin'),
+            'new_password' => Yii::t('models.user', 'Password'),
         ];
     }
 
@@ -281,13 +295,29 @@ class User extends ActiveRecord implements IdentityInterface
     
     public function beforeValidate() {
       if (parent::beforeValidate()) {
+        // nothing for now
+        return true;
+      }
+    }
+    
+    public function beforeSave($insert) {
+      if (parent::beforeSave($insert)) {
+        
+        // set member_since as now if not set
         if (empty($this->member_since)) {
           $this->member_since= time();
         }
         
+        if (!empty($this->new_password)) {
+          $this->setPassword($this->new_password);
+        }
+        
         return true;
+        
       }
     }
+    
+    
     
     public function updateLastLogin() {
       $last_login_at = Yii::$app->session['last_login_at'];

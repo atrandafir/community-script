@@ -10,7 +10,9 @@ use yii\bootstrap5\ActiveForm;
 
 <div class="user-form">
 
-    <?php $form = ActiveForm::begin(); ?>
+    <?php $form = ActiveForm::begin([
+                 'enableClientValidation' => false,
+               ]); ?>
 
     <?= $form->field($model, 'username')->textInput(['maxlength' => true]) ?>
 
@@ -22,15 +24,17 @@ use yii\bootstrap5\ActiveForm;
 
     <?= $form->field($model, 'photo')->textInput(['maxlength' => true]) ?>
 
-    <?= $form->field($model, 'photo_approved')->textInput() ?>
+    <?= $form->field($model, 'photo_approved')->checkbox() ?>
 
     <?= $form->field($model, 'status')->textInput() ?>
 
-    <?= $form->field($model, 'member_since')->textInput() ?>
-
-    <?= $form->field($model, 'last_login_at')->textInput() ?>
-
     <?= $form->field($model, 'admin')->textInput() ?>
+  
+    <?php if (empty($model->id)): ?>
+      <?= $form->field($model, 'new_password')->passwordInput()->hint(Yii::t('backend.user', 'Please enter a password for the user.')) ?>
+    <?php else: ?>
+      <?= $form->field($model, 'new_password')->passwordInput()->hint(Yii::t('backend.user', 'Fill only if you want to change the user\'s password.')) ?>
+    <?php endif; ?>
 
     <div>
         <?= Html::submitButton(Yii::t('backend.user', 'Save'), ['class' => 'btn btn-success']) ?>

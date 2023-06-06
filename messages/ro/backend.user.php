@@ -17,8 +17,14 @@
  * NOTE: this file must be saved in UTF-8 encoding.
  */
 return [
-    'Create User' => '',
-    'Create user' => '',
-    'Update User: {name}' => '',
-    'Users' => '',
+    'Are you sure you want to delete this item?' => 'Sigur vrei sa stergi acest item?',
+    'Create user' => 'Creeaza user',
+    'Delete' => 'Sterge',
+    'Save' => 'Salveaza',
+    'The requested page does not exist.' => 'Pagina nu exista.',
+    'Update' => 'Modifica',
+    'Update user: {name}' => 'Modifica user: {name}',
+    'Users' => 'Useri',
+    'Fill only if you want to change the user\'s password.' => 'Completeaza doar pentru a schimba parola userului.',
+    'Please enter a password for the user.' => 'Introdu o parola pentru acest user.',
 ];

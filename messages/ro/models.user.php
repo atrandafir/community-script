@@ -17,14 +17,15 @@
  * NOTE: this file must be saved in UTF-8 encoding.
  */
 return [
-    'Admin' => '',
-    'Email' => '',
-    'Full name' => '',
-    'Last login' => '',
-    'Location' => '',
-    'Member since' => '',
-    'Photo' => '',
-    'Photo approved' => '',
-    'Status' => '',
-    'Username' => '',
+    'Admin' => 'Admin',
+    'Email' => 'Email',
+    'Full name' => 'Nume complet',
+    'Last login' => 'Ultima logare',
+    'Location' => 'Locatie',
+    'Member since' => 'Membru de la',
+    'Photo' => 'Poza',
+    'Photo approved' => 'Poza aprobata',
+    'Status' => 'Status',
+    'Username' => 'Username',
+    'Password' => 'Parola',
 ];
