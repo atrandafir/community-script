@@ -23,9 +23,12 @@ return [
     'Last login' => 'Ultima logare',
     'Location' => 'Locatie',
     'Member since' => 'Membru de la',
+    'Password' => 'Parola',
     'Photo' => 'Poza',
     'Photo approved' => 'Poza aprobata',
     'Status' => 'Status',
     'Username' => 'Username',
-    'Password' => 'Parola',
+    'Active' => 'Activ',
+    'Deleted' => 'Eliminat',
+    'Inactive' => 'Inactiv',
 ];

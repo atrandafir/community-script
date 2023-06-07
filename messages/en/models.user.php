@@ -17,9 +17,12 @@
  * NOTE: this file must be saved in UTF-8 encoding.
  */
 return [
+    'Active' => '',
     'Admin' => '',
+    'Deleted' => '',
     'Email' => '',
     'Full name' => '',
+    'Inactive' => '',
     'Last login' => '',
     'Location' => '',
     'Member since' => '',

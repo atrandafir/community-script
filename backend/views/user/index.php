@@ -34,7 +34,14 @@ $this->params['breadcrumbs'][] = $this->title;
             //'location',
             'photo',
             //'photo_approved',
-            'status',
+            [
+                'filter'=>User::getStatusList(),
+                'attribute'=>'status',
+                'format'=>'raw',
+                'value'=>function($user){
+                    return '<small class="badge '.$user->statusLabelClass.'">'.$user->statusLabel.'</small>';
+                }
+            ],
             'member_since:datetime',
             'last_login_at:datetime',
             'admin',

@@ -2,6 +2,7 @@
 
 use yii\bootstrap5\Html;
 use yii\bootstrap5\ActiveForm;
+use common\models\User;
 
 /** @var yii\web\View $this */
 /** @var common\models\User $model */
@@ -26,9 +27,11 @@ use yii\bootstrap5\ActiveForm;
 
     <?= $form->field($model, 'photo_approved')->checkbox() ?>
 
-    <?= $form->field($model, 'status')->textInput() ?>
+    <?= $form->field($model, 'status')->radioList(User::getStatusList(), [
+        'prompt'=>'',
+    ]) ?>
 
-    <?= $form->field($model, 'admin')->textInput() ?>
+    <?= $form->field($model, 'admin')->checkbox() ?>
   
     <?php if (empty($model->id)): ?>
       <?= $form->field($model, 'new_password')->passwordInput()->hint(Yii::t('backend.user', 'Please enter a password for the user.')) ?>

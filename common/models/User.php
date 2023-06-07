@@ -38,6 +38,9 @@ use yii\web\IdentityInterface;
  * @property integer $created_at
  * @property integer $updated_at
  * @property string $password write-only password
+ * 
+ * @property string $statusLabel
+ * @property string $statusLabelClass
  */
 class User extends ActiveRecord implements IdentityInterface
 {
@@ -327,4 +330,45 @@ class User extends ActiveRecord implements IdentityInterface
         Yii::$app->session['last_login_at'] = $this->last_login_at;
       }
     }
+    
+    /**
+     * 
+     * @return string
+     */
+    static public function getStatusList() {
+        $list=[
+            (string)self::STATUS_INACTIVE=>Yii::t('models.user', 'Inactive'),
+            (string)self::STATUS_ACTIVE=>Yii::t('models.user', 'Active'),
+            (string)self::STATUS_DELETED=>Yii::t('models.user', 'Deleted'),
+        ];
+        return $list;
+    }
+    
+    /**
+     * 
+     * @return type
+     */
+    public function getStatusLabel() {
+        $list=self::getStatusList();
+        if (isset($list[(string)$this->status])) {
+          return $list[(string)$this->status];
+        }
+        return null;
+    }
+    
+    /**
+     * 
+     * @return string
+     */
+    public function getStatusLabelClass() {
+        $list=[
+            self::STATUS_INACTIVE=>'text-bg-warning',
+            self::STATUS_ACTIVE=>'text-bg-success',
+            self::STATUS_DELETED=>'text-bg-danger',
+        ];
+        if (isset($list[(string)$this->status])) {
+          return $list[(string)$this->status];
+        }
+        return null;
+   }
 }

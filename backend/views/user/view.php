@@ -37,7 +37,11 @@ $this->params['breadcrumbs'][] = $this->title;
             'location',
             'photo',
             'photo_approved',
-            'status',
+            [
+                'attribute'=>'status',
+                'value'=>'<small class="badge '.$model->statusLabelClass.'">'.$model->statusLabel.'</small>',
+                'format'=>'raw',
+            ],
             'member_since:datetime',
             'last_login_at:datetime',
             'admin',
